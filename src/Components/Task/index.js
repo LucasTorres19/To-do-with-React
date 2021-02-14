@@ -11,7 +11,9 @@ export default class Task extends Component{
 
         return(
             <React.Fragment>
+                    <div>
                     <h1>{this.props.NameTask}</h1>
+                    </div>
             </React.Fragment>
         )
     }

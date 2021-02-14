@@ -4,20 +4,29 @@ import ReactDOM from 'react-dom';
 
 export default class Creator extends Component{
 
+
+
 constructor(props){
     super(props)
-
     this.createTask= this.createTask.bind(this)
+    this.state ={
+        n : 0
+    }
 }
 
 async createTask(){
 
+    
+    let dato = document.getElementById('NameTask').value
+    
     ReactDOM.render(
     <React.StrictMode>
-        <Task NameTask='hola'/>
+        <Task NameTask={dato}/>
     </React.StrictMode>,
     document.getElementById('task')
     )
+    
+    localStorage.setItem(this.state.n++,dato)
 }
 
 render(){
@@ -38,6 +47,7 @@ render(){
 
     return(
         <React.Fragment>
+            <input  type="text" id="NameTask"/>
             <button style={style.button} onClick ={this.createTask}>Agregar Tarea</button>
         </React.Fragment>    
 )
